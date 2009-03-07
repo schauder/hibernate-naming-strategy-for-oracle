@@ -12,14 +12,24 @@ public class OracleNamingStrategy extends DefaultComponentSafeNamingStrategy {
             return null;
         StringBuffer buf = new StringBuffer(name.replace('.', '_'));
         for (int i = 1; i < buf.length() - 1; i++) {
-            if (Character.isLowerCase(buf.charAt(i - 1))
-                    && Character.isUpperCase(buf.charAt(i))
-            // && Character.isLowerCase(buf.charAt(i + 1))
+            if ((isLowerToUpper(buf, i)) || (isMultipleUpperToLower(buf, i))
+
             ) {
                 buf.insert(i++, '_');
             }
         }
         return buf.toString().toLowerCase();
+    }
+
+    private static boolean isMultipleUpperToLower(StringBuffer buf, int i) {
+        return i > 1 && Character.isUpperCase(buf.charAt(i - 1))
+                && Character.isUpperCase(buf.charAt(i - 2))
+                && Character.isLowerCase(buf.charAt(i));
+    }
+
+    private static boolean isLowerToUpper(StringBuffer buf, int i) {
+        return Character.isLowerCase(buf.charAt(i - 1))
+                && Character.isUpperCase(buf.charAt(i));
     }
 
     @Override

@@ -16,12 +16,14 @@
  <ivy-module version="2.0">
     <info organisation="de.schauderhaft" module="OracleNamingStrategy"/>
     <configurations> 
-    	<conf name="main" />
+    	<conf name="main" /> 
     	<conf name="test" extends="main"  />
     </configurations>
     <dependencies>
-        <dependency org="org.hibernate" name="hibernate-annotations" rev="3.3.0.ga" transitive="false"  conf="main->default" />
-        <dependency org="org.hibernate" name="hibernate" rev="latest.integration" transitive="false"  conf="main->default" />
+        <dependency org="org.hibernate" name="hibernate-annotations" rev="3.3.0.ga" transitive="true"  conf="main->default" >
+        	<exclude org="javax.transaction" name="jta" /> 
+        </dependency>
+        <dependency org="org.hibernate" name="hibernate-commons-annotations" rev="3.3.0.ga" transitive="false"  conf="test->default" />
         <dependency org="junit" name="junit" rev="4.5" transitive="false" conf="test->default" />
     </dependencies>
 </ivy-module>
