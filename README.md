@@ -8,7 +8,7 @@ which are still (somewhat) readable.
 
 In order to use the Oracle Naming Strategy you have to do two things: 
 
-1. download the [single source file](https://github.com/schauder/hibernate-naming-strategy-for-oracle/blob/master/src/de/schauderhaft/hibernate/OracleNamingStrategy.java) (ognoring tests) and put it in a source directory in your project in a package named 'de.schauderhaft.hibernate'.
+1. download the [single source file](https://github.com/schauder/hibernate-naming-strategy-for-oracle/blob/master/src/de/schauderhaft/hibernate/OracleNamingStrategy.java) (ignoring tests) and put it in a source directory in your project in a package named 'de.schauderhaft.hibernate'.
 
 2. specify it as the NamingStrategy to use. One way to do that would be to pass an instance to the Configuration instance before you create a SessionFactory:
 
